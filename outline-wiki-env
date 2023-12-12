@@ -1,0 +1,67 @@
+# Copy this file to .env, remove this comment and change the keys. For development
+# with docker this should mostly work out of the box other than setting the Slack
+# keys (for auth) and the SECRET_KEY.
+#
+# Please use `openssl rand -hex 32` to create SECRET_KEY
+SECRET_KEY=8e026e50ee97cxxxxxxxxxxxxxxxx
+
+# Please use `openssl rand -hex 32` to create SECRET_KEY
+UTILS_SECRET=afe02e0b7360d6c7be02bbfxxxxxxxxxxxxxx
+
+NODE_ENV=production-ssl-disabled
+## Docker 間で共有している postgresql を使う。
+DATABASE_URL=postgres://outline_xxxxxxxxxxxxxx@docker-host.lxd:5432/outline?sslmode=disable
+REDIS_URL=redis://127.0.0.1:6379
+
+URL=https://outline.example.tld
+PORT=3000
+
+#DEPLOYMENT=self
+ENABLE_UPDATES=true
+#SUBDOMAINS_ENABLED=false
+WEBSOCKETS_ENABLED=true
+#DEBUG=cache,presenters,events
+DEBUG=sql,cache,presenters,events,logistics,emails,mailer
+
+
+# Third party signin credentials (at least one is required)
+#SLACK_CLIENT_ID=get_a_key_from_slack
+#SLACK_CLIENT_SECRET=get_the_secret_of_above_key
+
+## google アカウントでログイン可能にする。
+GOOGLE_CLIENT_ID=3xxxxxxxxxxxxxxxxxx.apps.googleusercontent.com
+GOOGLE_CLIENT_SECRET=dySWvxxxxxxxxxxxxx
+# Comma separated list of domains to be allowed (optional)
+# If not set, all Google apps domains are allowed by default
+GOOGLE_ALLOWED_DOMAINS=example.tld
+
+# Third party credentials (optional)
+#SLACK_VERIFICATION_TOKEN=PLxk6OlXXXXXVj3YYYY
+#SLACK_APP_ID=A0XXXXXXX
+#SLACK_MESSAGE_ACTIONS=true
+#GOOGLE_ANALYTICS_ID=
+BUGSNAG_KEY=
+GITHUB_ACCESS_TOKEN=
+
+## s3 はDocker外に置いた互換サーバーminioを使う。
+AWS_ACCESS_KEY_ID=outline_Earflap2766
+AWS_SECRET_ACCESS_KEY=h26dMCxxxxxxxxxx
+AWS_REGION=xxxx
+AWS_S3_UPLOAD_BUCKET_URL=https://s3.example.tld
+AWS_S3_UPLOAD_BUCKET_NAME=outline-test
+AWS_S3_UPLOAD_MAX_SIZE=26214400
+
+# Emails configuration (optional)
+SMTP_HOST=smtp.mailcow.example.tld
+SMTP_SECURE=true
+SMTP_PORT=587
+SMTP_USERNAME=service@example.tld
+SMTP_PASSWORD=xxxxxxxxxxx
+SMTP_FROM_EMAIL=outline@example.tld
+SMTP_REPLY_EMAIL=
+
+#
+NODE_ENV=production
+DEPLOYMENT=hosted
+SMTP_FROM_EMAIL=outline@example.tld
+
